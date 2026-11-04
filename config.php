@@ -6,6 +6,8 @@ date_default_timezone_set('Asia/Manila');
 const MAX_ACTIVE_LOANS = 3;  // books one student can hold at once
 const LOAN_DAYS = 7;         // loan length and extension length, in days
 const MAX_EXTENSIONS = 1;    // extensions allowed per loan
+const LIBRARY_NAME  = 'JRU Library';
+const DUE_SOON_DAYS = 3;
 
 session_set_cookie_params([
     'httponly' => true,
