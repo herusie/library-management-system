@@ -23,7 +23,7 @@
 
     <label class="form-label">Cover image (JPG, PNG or WEBP, max 2 MB)</label>
     <?php if (!empty($book['cover_image'])): ?>
-        <div class="mb-2"><img src="uploads/<?= e($book['cover_image']) ?>" alt="" height="80"></div>
+        <div class="mb-2"><img src="<?= e(cover_url($book['cover_image'])) ?>" alt="" height="80"></div>
     <?php endif; ?>
     <input class="form-control mb-3" type="file" name="cover" accept="image/jpeg,image/png,image/webp">
 
