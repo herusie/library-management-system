@@ -43,8 +43,10 @@ CREATE TABLE IF NOT EXISTS borrowings (
     borrowed_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     due_date DATE NOT NULL,
     returned_at DATETIME NULL,
+    extensions TINYINT UNSIGNED NOT NULL DEFAULT 0,
     CONSTRAINT fk_borrowings_book FOREIGN KEY (book_id) REFERENCES books(id),
     CONSTRAINT fk_borrowings_student FOREIGN KEY (student_id) REFERENCES students(id),
     INDEX idx_borrowings_due_date (due_date),
     INDEX idx_borrowings_student_id (student_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+

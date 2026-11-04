@@ -1,6 +1,12 @@
 <?php
 declare(strict_types=1);
 
+date_default_timezone_set('Asia/Manila');
+
+const MAX_ACTIVE_LOANS = 3;  // books one student can hold at once
+const LOAN_DAYS = 7;         // loan length and extension length, in days
+const MAX_EXTENSIONS = 1;    // extensions allowed per loan
+
 session_set_cookie_params([
     'httponly' => true,
     'samesite' => 'Lax',
@@ -21,6 +27,7 @@ if ($conn->connect_error) {
 }
 
 $conn->set_charset('utf8mb4');
+$conn->query("SET time_zone = '+08:00'");
 
 function require_login(): void
 {
