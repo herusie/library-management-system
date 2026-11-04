@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 require 'config.php';
+require 'upload.php';
 require_login();
 
 $page_title = 'Books';
@@ -38,7 +39,7 @@ require 'header.php';
     <tbody>
     <?php foreach ($books as $b): ?>
         <tr>
-            <td><?php if ($b['cover_image']): ?><img src="uploads/<?= e($b['cover_image']) ?>" alt="" height="60"><?php endif; ?></td>
+            <td><?php if ($b['cover_image']): ?><img src="<?= e(cover_url($b['cover_image'])) ?>" alt="" height="60"><?php endif; ?></td>
             <td>
                 <?= e($b['title']) ?>
                 <?php if ($b['updated_at'] !== $b['created_at']): ?>
