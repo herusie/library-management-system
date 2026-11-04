@@ -16,6 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($f['title'] === '' || $f['author'] === '') {
         $error = 'Title and author are required.';
+    } elseif ($f['category'] !== '' && !in_array($f['category'], BOOK_CATEGORIES, true)) {
+        $error = 'Please choose a category from the list.';
     } elseif ($copies < 1) {
         $error = 'Copies must be at least 1.';
     } else {

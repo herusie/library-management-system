@@ -8,6 +8,10 @@ const LOAN_DAYS = 7;         // loan length and extension length, in days
 const MAX_EXTENSIONS = 1;    // extensions allowed per loan
 const LIBRARY_NAME  = 'JRU Library';
 const DUE_SOON_DAYS = 3;
+const BOOK_CATEGORIES = [
+    'English', 'Filipino', 'Mathematics', 'Science', 'History', 'Literature',
+    'Technology', 'Business', 'Psychology', 'Self-Help', 'Fiction', 'Non-Fiction', 'Reference', 'Other',
+];
 
 session_set_cookie_params([
     'httponly' => true,

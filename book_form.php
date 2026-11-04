@@ -14,7 +14,18 @@
         </div>
         <div class="col-md-6 mb-3">
             <label class="form-label">Category</label>
-            <input class="form-control" name="category" value="<?= e($f['category']) ?>">
+            <?php
+            $cats = BOOK_CATEGORIES;
+            if ($f['category'] !== '' && !in_array($f['category'], $cats, true)) {
+                $cats[] = $f['category'];   // keep a legacy value so editing doesn't wipe it
+            }
+            ?>
+            <select class="form-select" name="category">
+                <option value="">— Select category —</option>
+                <?php foreach ($cats as $c): ?>
+                    <option value="<?= e($c) ?>"<?= $c === $f['category'] ? ' selected' : '' ?>><?= e($c) ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
     </div>
 

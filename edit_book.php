@@ -36,6 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($f['title'] === '' || $f['author'] === '') {
         $error = 'Title and author are required.';
+    } elseif ($f['category'] !== '' && $f['category'] !== ($book['category'] ?? '') && !in_array($f['category'], BOOK_CATEGORIES, true)) {
+        $error = 'Please choose a category from the list.';
     } elseif ($total < max(1, $borrowed)) {
         $error = "Total copies cannot be lower than the $borrowed copies currently borrowed.";
     } else {
